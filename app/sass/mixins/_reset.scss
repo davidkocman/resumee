@@ -1,0 +1,124 @@
+@import "fonts";
+/***********************************************************/
+/* GENERAL SETUPS & DECLARATIONS
+/***********************************************************/
+$blue: #076585;
+html {font-size: 16px;}
+body{
+	font-size: 1.6rem;
+	line-height: 3rem;
+}
+html,body{
+	height: 100%;
+	margin: 0;
+}
+
+body,h1,h2,h3,h4,p,span{
+	padding: 0;
+	margin: 0;
+}
+
+a,a:hover{ text-decoration: none;}
+a, a:visited {
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+h1, .h01 {
+	font-size: 2.6rem;
+	line-height: 1.35;
+	letter-spacing: 2px;
+	font-family: $LaR;
+	color: $blue;
+}
+h2, .h02 {
+	font-size: 2.4rem;
+	line-height: 1.25;
+}
+h3, .h03 {
+	font-size: 2rem;
+	line-height: 1.5;
+}
+h4, .h04 {
+	font-size: 1.7rem;
+	line-height: 1.76;
+}
+h4{
+	font-family: $RoR;
+	font-size: 1.2rem;
+	color: $blue;
+}
+p{
+	font-size: 1.6rem;
+	font-family: $RoR;
+}
+p.lead {
+	font-size: 2rem;
+	line-height: 1.8;
+	font-family: $RoR;
+	color: #4f4f4f;
+	margin-bottom: 3rem;
+}
+.heading h1,
+.heading h3,
+.heading p{
+	text-align: center;
+}
+.heading h3{
+	font-family: $LaR;
+	color: #b7b7b7;
+	letter-spacing: 0.3rem;
+	text-transform: uppercase;
+	font-size: 1rem;
+	&:before,
+	&:after{
+		content: '------';
+		opacity: .5;
+
+	}
+	&:before{margin-right: .5rem;}
+	&:after{margin-left: .5rem;}
+}
+.content{
+	margin-top: 4rem;
+}
+input[type="email"], input[type="number"], input[type="search"], input[type="text"], input[type="tel"], input[type="url"], input[type="password"], textarea, select{
+	display: block;
+	padding: 2.5rem 0 0;
+	border: 0;
+	outline: none;
+	/*vertical-align: middle;*/
+	color: #313131;
+	font-family: "montserrat-regular", sans-serif;
+	font-size: 1.5rem;
+	line-height: 3rem;
+	max-width: 100%;
+	background: transparent;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+	transition: all 0.3s ease-in-out;
+}
+input:required + .help-text::before,
+textarea:required + .help-text::before {
+	content: '*required';
+	font-size: 1rem;
+	font-family: $RoR;
+	color: red;
+	margin: 0 auto;
+	bottom: .5rem;
+	position: relative;
+	display: none;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	color: rgb(100, 100, 100);
+}
+::-moz-placeholder { /* Firefox 19+ */
+	color: rgb(100, 100, 100);
+}
+:-ms-input-placeholder { /* IE 10+ */
+	color: rgb(100, 100, 100);
+}
+:-moz-placeholder { /* Firefox 18- */
+	color: rgb(100, 100, 100);
+}

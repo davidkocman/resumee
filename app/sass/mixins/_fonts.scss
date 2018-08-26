@@ -1,0 +1,11 @@
+@import "font-face";
+
+@include font-face("FontAwesome", "../fonts/font-awesome/fontawesome-webfont", normal, normal, ttf eot svg woff woff2 otf);
+@include font-face("roboto-regular", "../fonts/Roboto_Slab/RobotoSlab-Regular", normal, normal, ttf);
+@include font-face("roboto-bold", "../fonts/Roboto_Slab/RobotoSlab-Bold", normal, normal, ttf);
+@include font-face("lato-regular", "../fonts/Lato/Lato-Regular", normal, normal, ttf);
+
+$LaR:	'lato-regular';
+$RoR:	'roboto-regular';
+$RoB:	'roboto-bold';
+$FA:	'FontAwesome';

@@ -1,0 +1,19 @@
+{
+	"name": "David Kocman",
+	"short_name": "d.kocman",
+	"start_url": "./",
+	"orientation": "portrait-primary",
+	"background_color": "#fff",
+	"lang": "en",
+	"description": "A simply readable Hacker News app.",
+	"icons":
+	[{
+		"src": "images/dk_h-dark.png",
+		"sizes": "250x250",
+		"type": "image/png"
+	}],
+	"related_applications":
+	[{
+		"platform": "https://www.davidkocman.sk"
+	}]
+}

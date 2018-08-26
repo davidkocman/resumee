@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="David Kocman">
+
+	<!-- favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="images/favicon/logo.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="images/favicon/logo.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="images/favicon/logo.png">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="images/favicon/logo.png">
+	<meta name="theme-color" content="#ffffff">
+	<!-- end of favicons -->
+
+	<meta property="og:title" content="" />
+	<meta property="og:image" content="" />
+	<meta property="og:url" content="" />
+	<meta property="og:site_name" content="" />
+	<meta property="og:description" content/>
+
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<link rel="stylesheet" href="css/style.min.css">
+
+	<title>Vue.js - Learn</title>
+</head>
+
+<body>
+
+	<div id="output">
+		<h2>.:tasker</h2>
+		<div class="tasks">
+			<ul>
+				<li v-for="task in tasks" v-if="!task.completed"><span><label><input type="checkbox" v-model="task.completed"/>{{task.description}}</label></span></li>
+			</ul>
+		</div>
+		<div class="inputWrapper">
+			<div class="infoTooltip taskName">
+				<p>Enter task description</p>
+			</div>
+			<input type="text" id="input" v-model="taskDescription" :class="inputStyles" onfocus="onFocus()">
+			<button :title="buttonTittle" @click="addTask" :class="buttonStyles" :disabled="checkValue" id="addTaskButton">Add new task</button>
+		</div>
+	</div>
+
+	<script src="js/vue/vue.js"></script>
+	<script src="js/jquery/jquery.js"></script>
+	<script src="js/script.min.js"></script>
+</body>
+
+</html>
