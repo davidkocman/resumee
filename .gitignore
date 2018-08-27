@@ -4,6 +4,7 @@ node_modules
 bower_components
 .htaccess
 package-lock.json
+gulpfile
 
 # Optional npm cache directory
 .npm
