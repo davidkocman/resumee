@@ -7,6 +7,7 @@
 			$('#main').show();
 		});
 	};
+
 	/* Scroll position check <-- not in use
 	/* ------------------------------------------------------ */
 	var scrollPositionCheck = function () {
@@ -23,10 +24,23 @@
 		});
 	};
 
+	/* Calculate age
+	/* ------------------------------------------------------ */
+	var getAge = function (date) {
+		
+		var partsArr	= date.split('/').map(Number),
+				ageDif		= Date.now() - new Date(partsArr[0], (partsArr[1]-1), partsArr[2]),
+				ageDate		= new Date(ageDif),
+				age				= Math.abs(ageDate.getUTCFullYear() - 1970);
+
+		$('#age').append(age);
+	};
+
 	/* Scroll to section
 	/* - handle links with @href started with '#' only
 	/* ------------------------------------------------------ */
 	var scrollToPosition = function () {
+		
 		$(document).on('click', 'a[href^="#"]', function (e) {
 			var id = $(this).attr('href');
 			var $id = $(id);
@@ -202,6 +216,7 @@
 	scrollPositionCheck();
 	scrollToPosition();
 	bcOffCanvas();
+	getAge('1985/12/29');
 
 	window.sr = ScrollReveal({
 		duration: 750,
