@@ -24,6 +24,17 @@
 		});
 	};
 
+	/* Scroll position indicator
+	/* ------------------------------------------------------ */
+	var pageScrollPosition = function () {
+		window.onscroll = function(){
+			var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+			var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+			var scrolled = (winScroll / height ) * 100;
+			document.getElementById('scrollProgress').style.width = scrolled + '%';
+		};
+	};
+
 	/* Calculate age
 	/* ------------------------------------------------------ */
 	var getAge = function (date) {
@@ -64,7 +75,7 @@
 	var bcOffCanvas = function () {
 
 		var menuTrigger = $('.burger-menu'),
-			nav = $('#menu-wrap'),
+			nav = $('nav'),
 			closeButton = nav.find('#close-button'),
 			siteBody = $('body');
 
@@ -77,7 +88,7 @@
 
 		// close menu clicking outside the menu itself
 		siteBody.on('click', function (e) {
-			if (!$(e.target).is('.burger-menu, #menu-wrap')) {
+			if (!$(e.target).is('.burger-menu, nav')) {
 				nav.removeClass('is-active');
 				siteBody.removeClass('menu-is-open');
 			}
@@ -217,6 +228,7 @@
 	scrollToPosition();
 	bcOffCanvas();
 	getAge('1985/12/29');
+	pageScrollPosition();
 
 	window.sr = ScrollReveal({
 		duration: 750,
