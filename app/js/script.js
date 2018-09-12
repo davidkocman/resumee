@@ -27,10 +27,10 @@
 	/* Scroll position indicator
 	/* ------------------------------------------------------ */
 	var pageScrollPosition = function () {
-		window.onscroll = function(){
+		window.onscroll = function () {
 			var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
 			var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-			var scrolled = (winScroll / height ) * 100;
+			var scrolled = (winScroll / height) * 100;
 			document.getElementById('scrollProgress').style.width = scrolled + '%';
 		};
 	};
@@ -38,11 +38,11 @@
 	/* Calculate age
 	/* ------------------------------------------------------ */
 	var getAge = function (date) {
-		
-		var partsArr	= date.split('/').map(Number),
-				ageDif		= Date.now() - new Date(partsArr[0], (partsArr[1]-1), partsArr[2]),
-				ageDate		= new Date(ageDif),
-				age				= Math.abs(ageDate.getUTCFullYear() - 1970);
+
+		var partsArr = date.split('/').map(Number),
+			ageDif = Date.now() - new Date(partsArr[0], (partsArr[1] - 1), partsArr[2]),
+			ageDate = new Date(ageDif),
+			age = Math.abs(ageDate.getUTCFullYear() - 1970);
 
 		$('#age').append(age);
 	};
@@ -51,7 +51,7 @@
 	/* - handle links with @href started with '#' only
 	/* ------------------------------------------------------ */
 	var scrollToPosition = function () {
-		
+
 		$(document).on('click', 'a[href^="#"]', function (e) {
 			var id = $(this).attr('href');
 			var $id = $(id);
