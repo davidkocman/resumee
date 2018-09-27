@@ -108,58 +108,60 @@
 		$('#contactMessage').val('');
 	}
 
-	/* Contact Form Validation
+	/* Contact Form Validation [name, email, form]
 	/* ------------------------------------------------------ */
-	function validateName(name) {
-		var nameRegex = /^[a-zA-Z ]+$/;
-		return nameRegex.test(name);
-	}
+	var validate = {
 
-	function validateEmail(email) {
-		var emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		return emailRegex.test(email);
-	}
+		// Name must be at least 2 [a-zA-Z] chars long
+		name: function (name) {
+			var nameRegex = /^[a-zA-Z ]{2,}$/;
+			return nameRegex.test(name);
+		},
 
-	function validateForm() {
-		var name = $('#contactName').val();
-		var email = $('#contactEmail').val();
-		var message = $('#contactMessage').val();
+		email: function (email) {
+			var emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			return emailRegex.test(email);
+		},
 
-		var errorName = true,
-			errorEmail = true,
-			errorMessage = true;
+		form: function () {
+			var name = $('#contactName').val();
+			var email = $('#contactEmail').val();
+			var message = $('#contactMessage').val();
+			var errorName = true,
+				errorEmail = true,
+				errorMessage = true;
 
-		if (validateName(name)) {
-			errorName = false;
-			$('#contactName').removeClass('formError');
-			$('#nameError').hide();
-		} else {
-			$('#contactName').addClass('formError');
-			$('#nameError').show();
+			if (this.name(name)) {
+				errorName = false;
+				$('#contactName').removeClass('formError');
+				$('#nameError').hide();
+			} else {
+				$('#contactName').addClass('formError');
+				$('#nameError').show();
+			}
+			if (this.email(email)) {
+				errorEmail = false;
+				$('#contactEmail').removeClass('formError');
+				$('#mailError').hide();
+			} else {
+				$('#contactEmail').addClass('formError');
+				$('#mailError').show();
+			}
+			if (message === null || message === '') {
+				$('#contactMessage').addClass('formError');
+				$('#messageError').show();
+			} else {
+				errorMessage = false;
+				$('#contactMessage').removeClass('formError');
+				$('#messageError').hide();
+			}
+			if (errorName === true || errorEmail === true || errorMessage === true) {
+				return false;
+			} else {
+				return true;
+			}
 		}
-		if (validateEmail(email)) {
-			errorEmail = false;
-			$('#contactEmail').removeClass('formError');
-			$('#mailError').hide();
-		} else {
-			$('#contactEmail').addClass('formError');
-			$('#mailError').show();
-		}
-		if (message === null || message === '') {
-			$('#contactMessage').addClass('formError');
-			$('#messageError').show();
-		} else {
-			errorMessage = false;
-			$('#contactMessage').removeClass('formError');
-			$('#messageError').hide();
-		}
-
-		if (errorName === true || errorEmail === true || errorMessage === true) {
-			return false;
-		} else {
-			return true;
-		}
-	}
+	};
 
 	/* Contact Form Submit
 	/* ------------------------------------------------------ */
@@ -209,9 +211,9 @@
 	}
 
 	var submitButton = $('.submit-form');
-	submitButton.on('click', function (e) {
-		e.preventDefault();
-		if (validateForm() === true) {
+	submitButton.on('click', function (event) {
+		event.preventDefault();
+		if (validate.form()) {
 			sendEmail();
 		}
 	});
