@@ -215,7 +215,7 @@
 	#portfolio,
 	#contact,
 	#hobbies {
-		padding: 1.5rem;
+		padding: 1.5rem 0;
 		border-top: .5rem solid rgba($color: $blue, $alpha: .2);
 	}
 
@@ -295,6 +295,10 @@
 							float: left;
 							padding-right: 4rem;
 							text-align: right;
+						}
+
+						.age {
+							font-style: normal;
 						}
 					}
 				}
@@ -658,7 +662,7 @@
 				&-container {
 					background: #fff;
 					border-radius: 5px;
-					box-shadow: hsla(0, 0, 0, .2) 0 4px 2px -2px;
+					box-shadow: 0 13px 30px #adb5c3;
 					font-family: $LaR;
 					font-weight: 100;
 					margin: 0 1rem;
